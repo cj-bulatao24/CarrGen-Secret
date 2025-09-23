@@ -63,6 +63,16 @@ body {
     margin-top: 50px;
 }
 
+.Forgot {
+    cursor: pointer;
+    text-decoration: none;
+    color: #1484CD;
+}
+
+.Forgot:hover{
+    color: #0045a0;
+}
+
 .input-field {
     width: 100%;
     height: 55px;
@@ -148,7 +158,7 @@ body {
 
     <button class="input-submit btn btn-primary" onclick="login()">Login</button>
 
-    <a class="" onclick="Forgot()">Forgot Password?</a>
+    <a class="Forgot" onclick="Forgot()">Forgot Password?</a>
 </div>
 
 <script>
@@ -168,13 +178,19 @@ function login() {
         localStorage.setItem("currentUser", JSON.stringify(user));
         if(user.role === "teacher") window.location.href = "dashboard_teacher.html";
         else if(user.role === "adviser") window.location.href = "dashboard_adviser.html";
-    } else {
+    }else if(username === "" && password === ""){
+        showToast("Enter Username and Password")
+    }else if(username === ""){
+        showToast("Enter Username")
+    }else if(password === ""){
+        showToast("Enter Password")
+    }else {
         showToast("Invalid username or password!");
     }
 }
 
 function Forgot() {
-    showToast("Message sir Chris")
+    showToast("Kindly message sir Chris")
 }
 
 // Auto-redirect if already logged in
@@ -185,6 +201,24 @@ window.onload = () => {
         if(currentUser.role === "adviser") window.location.href = "dashboard_adviser.html";
     }
 }
+
+const usernameInput = document.getElementById("username");
+const passwordInput = document.getElementById("password");
+
+// When Enter is pressed in username, focus password
+usernameInput.addEventListener("keypress", function(e) {
+    if(e.key === "Enter") {
+        e.preventDefault();  // prevent form submit
+        passwordInput.focus();
+    }
+});
+
+passwordInput.addEventListener("keypress", function(e) {
+    if(e.key === "Enter") {
+        login();  // call login function
+    }
+});
+
 </script>
 
 <script src="Toast.js"></script>
