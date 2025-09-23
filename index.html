@@ -179,7 +179,7 @@ function login() {
         localStorage.setItem("currentUser", JSON.stringify(user));
         if(user.role === "teacher") window.location.href = "dashboard_teacher.html";
         else if(user.role === "adviser") window.location.href = "dashboard_adviser.html";
-        else if(user.role === "bebeko") window.location.href = "bebeko.html";
+        else if(user.role === "bebeko") window.location.href = "bebeko";
     }else if(username === "" && password === ""){
         showToast("Enter Username and Password")
     }else if(username === ""){
@@ -226,4 +226,5 @@ passwordInput.addEventListener("keypress", function(e) {
 <script src="Toast.js"></script>
 
 </body>
+
 </html>
