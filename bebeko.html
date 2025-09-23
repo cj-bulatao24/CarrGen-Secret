@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <title>Document</title>
+
+    <style>
+        div{
+            color: red;
+            font-family: arial;
+            font-size: 50px;
+            text-transform: uppercase;
+            text-align: center;
+            align-content: center;
+        }
+        button{
+            size: 20px;
+            padding: 20px;
+        }
+    </style>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <div data-aos="zoom-in" data-aos-duration="3000">
+        <h1>Iloveyou babyy! keep going mwamwamwa</h1>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    
+
+    <script>
+    function logout() {
+    localStorage.removeItem("currentUser");
+    window.location.href = "index.html";
+}
+</script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+</body>
+</html>
