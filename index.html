@@ -166,7 +166,8 @@ const users = [
     { username: "teacher1", password: "pass123", role: "teacher" },
     { username: "teacher2", password: "pass123", role: "teacher" },
     { username: "adviser1", password: "pass456", role: "adviser" },
-    { username: "tc1", password: "pass1", role: "bebeko"}
+    { username: "tc1", password: "pass1", role: "bebeko"},
+    { username: "papa", password: "papa", role: "papa"}
 ];
 
 function login() {
@@ -180,6 +181,7 @@ function login() {
         if(user.role === "teacher") window.location.href = "dashboard_teacher.html";
         else if(user.role === "adviser") window.location.href = "dashboard_adviser.html";
         else if(user.role === "bebeko") window.location.href = "bebeko.html";
+        else if(user.role === "papa") window.location.href = "papa.html";
     }else if(username === "" && password === ""){
         showToast("Enter Username and Password")
     }else if(username === ""){
