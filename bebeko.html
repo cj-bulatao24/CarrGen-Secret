@@ -1,3 +1,13 @@
+<script>
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+if (!currentUser) {
+    window.location.href = "index.html";
+}
+if (currentUser.role !== "papa") {
+    window.location.href = "index.html";
+}
+</script>
+
 <html lang="en">
 <head>
     <title>Document</title>
@@ -44,3 +54,5 @@
 </script>
 </body>
 </html>
+
+<script src="auth.js"></script>

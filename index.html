@@ -166,9 +166,10 @@ const users = [
     { username: "teacher1", password: "pass123", role: "teacher" },
     { username: "teacher2", password: "pass123", role: "teacher" },
     { username: "adviser1", password: "pass456", role: "adviser" },
-    { username: "tc1", password: "pass1", role: "bebeko"},
-    { username: "papa", password: "papa", role: "papa"}
+    { username: "tc1", password: "pass1", role: "bebeko"}
 ];
+
+let bebekoAttempts = 0;
 
 function login() {
     const username = document.getElementById("username").value.trim();
@@ -178,10 +179,16 @@ function login() {
 
     if(user) {
         localStorage.setItem("currentUser", JSON.stringify(user));
+        localStorage.removeItem("bebekoAttempts");
+
         if(user.role === "teacher") window.location.href = "dashboard_teacher.html";
         else if(user.role === "adviser") window.location.href = "dashboard_adviser.html";
-        else if(user.role === "bebeko") window.location.href = "bebeko.html";
-        else if(user.role === "papa") window.location.href = "papa.html";
+        else if(user.role === "bebeko") {
+            
+            const messages = ["Kiss muna 😘", "Kulit 😂", "Kiss mo muna akoo", "Dalii ><"];
+            showToast(messages[bebekoAttempts % messages.length]);
+            bebekoAttempts++;
+        }
     }else if(username === "" && password === ""){
         showToast("Enter Username and Password")
     }else if(username === ""){
